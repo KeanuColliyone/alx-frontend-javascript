@@ -1,4 +1,5 @@
-const cloneSymbol = Symbol('cloneCar');
+// car.js
+const cloneSymbol = Symbol('clone');
 
 export default class Car {
   constructor(brand, motor, color) {
@@ -9,12 +10,13 @@ export default class Car {
 
   // Method to clone the car
   cloneCar() {
-    const ClonedCar = this.constructor[cloneSymbol] || this.constructor;
-    return new ClonedCar(this._brand, this._motor, this._color);
+    // Call the internal clone method via the symbol to return a new instance of the same class
+    return this[cloneSymbol]();
   }
 
-  // Define the cloning method for Car
-  static [cloneSymbol](brand, motor, color) {
-    return new this(brand, motor, color);
+  // Internal clone method using Symbol
+  [cloneSymbol]() {
+    // Create a new instance of the constructor, being an instance of the same class
+    return new this.constructor();
   }
 }
