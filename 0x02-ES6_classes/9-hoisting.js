@@ -1,5 +1,4 @@
-// Define and export the HolbertonClass class
-export class HolbertonClass {
+class HolbertonClass {
   constructor(year, location) {
     this._year = year;
     this._location = location;
@@ -15,8 +14,7 @@ export class HolbertonClass {
   }
 }
 
-// Define and export the StudentHolberton class
-export class StudentHolberton {
+class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
     this._lastName = lastName;
@@ -49,6 +47,9 @@ const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
 const student4 = new StudentHolberton('Donald', 'Bush', class2019);
 const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
 
-// Define and export the list of students as the default export
-const listOfStudents = [student1, student2, student3, student4, student5];
-export default listOfStudents;
+// Export everything as an object
+export default {
+  HolbertonClass,
+  StudentHolberton,
+  listOfStudents: [student1, student2, student3, student4, student5],
+};
