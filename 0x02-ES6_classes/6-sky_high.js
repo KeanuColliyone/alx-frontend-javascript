@@ -5,7 +5,7 @@ export default class SkyHighBuilding extends Building {
     // Call the parent class constructor
     super(sqft);
 
-    // Validate and assign floors
+    // Validate floors and assign it to _floors
     if (typeof floors !== 'number') {
       throw new TypeError('Floors must be a number');
     }
